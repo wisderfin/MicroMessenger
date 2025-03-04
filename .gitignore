@@ -1,0 +1,20 @@
+# secrets
+.env
+
+# cache
+__pycache__
+
+# virtual environments
+venv
+
+# linters
+.flake8
+
+# ide
+.vscode
+
+# help tools
+repomix-output.txt
+
+# nginx
+nginx/.htpasswd
