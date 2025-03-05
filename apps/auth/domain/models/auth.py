@@ -1,0 +1,11 @@
+from sqlalchemy import String
+from sqlalchemy.orm import Mapped, mapped_column
+
+from domain.models.base import ModelMixin
+
+
+class UserMdel(ModelMixin):
+    __tablename__ = 'user'
+
+    username: Mapped[str] = mapped_column(String(255), nullable=False)
+    password: Mapped[str] = mapped_column(String(60), nullable=False)

@@ -1,0 +1,37 @@
+services:
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_HOST: ${DATABASE_HOST}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - postgres-storage:/var/lib/postgresql/data
+    healthcheck:
+      test: sh -c "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME} -h ${DATABASE_HOST} -p ${DATABASE_PORT}"
+      start_period: 3s
+      interval: 3s
+      timeout: 1s
+      retries: 5
+    restart: on-failure
+    networks:
+      - app-network
+
+  auth:
+    build: ./apps/auth
+    volumes:
+      - ./apps/auth/migrations:/app/migrations
+    env_file: .env
+    depends_on:
+      - database
+    restart: on-failure
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres-storage:
