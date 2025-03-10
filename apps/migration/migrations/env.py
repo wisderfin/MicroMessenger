@@ -5,7 +5,7 @@ from logging.config import fileConfig
 from alembic import context
 
 
-from domain.models.base import Base
+from apps.migration.models import Base
 from domain.models.auth import *
 from config import config as c
 

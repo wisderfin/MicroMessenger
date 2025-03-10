@@ -19,3 +19,6 @@ repomix-output.txt
 # nginx
 nginx/.htpasswd
 venv
+
+# files for help of migration
+migration/models.py
