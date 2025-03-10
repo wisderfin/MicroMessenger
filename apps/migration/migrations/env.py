@@ -5,21 +5,20 @@ from logging.config import fileConfig
 from alembic import context
 
 
-from apps.migration.models import Base
-from domain.models.auth import *
-from config import config as c
+from _models import *
+from config import config as settings
 
 config = context.config
 
 section = config.config_ini_section
-config.set_section_option(section, "DATABASE_HOST", c.DATABASE_HOST)
+config.set_section_option(section, "DATABASE_HOST", settings.DATABASE_HOST)
 config.set_section_option(
-    section, "DATABASE_PORT", str(c.DATABASE_PORT)
+    section, "DATABASE_PORT", str(settings.DATABASE_PORT)
 )
-config.set_section_option(section, "DATABASE_NAME", c.DATABASE_NAME)
-config.set_section_option(section, "DATABASE_USER", c.DATABASE_USER)
-config.set_section_option(section, "DATABASE_PASSWORD", c.DATABASE_PASSWORD)
-config.set_section_option(section, "DATABASE_DRIVER", c.DATABASE_DRIVER)
+config.set_section_option(section, "DATABASE_NAME", settings.DATABASE_NAME)
+config.set_section_option(section, "DATABASE_USER", settings.DATABASE_USER)
+config.set_section_option(section, "DATABASE_PASSWORD", settings.DATABASE_PASSWORD)
+config.set_section_option(section, "DATABASE_DRIVER", settings.DATABASE_DRIVER)
 
 
 fileConfig(config.config_file_name)

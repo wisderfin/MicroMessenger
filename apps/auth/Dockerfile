@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["sh", "-c", "python -B -m alembic upgrade head && python -B main.py"]
+CMD ["sh", "-c", "python -B main.py"]

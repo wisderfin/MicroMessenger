@@ -19,12 +19,8 @@ logs:
 
 
 # comands for migration-container
-service?=
 msg?=
 mgr:
-	docker-compose exec $(service) sh -c "alembic revision --autogenerate -m '$(msg)'"
-	docker-compose exec $(service) sh -c "alembic upgrade head"
-mgr-run:
-	docker-compose run $(service) sh -c "alembic revision --autogenerate -m '$(msg)'"
-	docker-compose run $(service) sh -c "alembic upgrade head"
-	docker-compose stop $(service)
+	docker-compose run migration sh -c "alembic revision --autogenerate -m '$(msg)'"
+	docker-compose run migration sh -c "alembic upgrade head"
+	docker-compose stop migration

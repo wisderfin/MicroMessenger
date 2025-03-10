@@ -18,6 +18,17 @@ services:
     networks:
       - app-network
 
+  migration:
+    build: ./apps/migration
+    volumes:
+      - ./apps/migration/migrations:/app/migrations
+    env_file: .env
+    depends_on:
+      - database
+    restart: on-failure
+    networks:
+      - app-network
+
   auth:
     build: ./apps/auth
     volumes:
@@ -25,9 +36,11 @@ services:
     env_file: .env
     depends_on:
       - database
+      - migration
     restart: on-failure
     networks:
       - app-network
+
 
 networks:
   app-network:
