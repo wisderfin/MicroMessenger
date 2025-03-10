@@ -21,4 +21,4 @@ nginx/.htpasswd
 venv
 
 # files for help of migration
-migration/models.py
+apps/migration/models.py
