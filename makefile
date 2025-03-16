@@ -21,6 +21,6 @@ logs:
 # comands for migration-container
 msg?=
 mgr:
-	docker-compose run migration sh -c "alembic revision --autogenerate -m '$(msg)'"
-	docker-compose run migration sh -c "alembic upgrade head"
+	docker-compose run migration sh -c "python -B -m alembic revision --autogenerate -m '$(msg)'"
+	docker-compose run migration sh -c "python -B -m alembic upgrade head"
 	docker-compose stop migration
