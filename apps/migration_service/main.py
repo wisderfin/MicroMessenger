@@ -1,8 +1,6 @@
 import asyncio
-import sys
 from alembic import context
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy import text
+from sqlalchemy.ext.asyncio import create_async_engine
 from config import config
 
 DATABASE_URL = (
@@ -13,6 +11,7 @@ DATABASE_URL = (
 )
 
 engine = create_async_engine(DATABASE_URL, echo=False, future=True)
+
 
 async def run_migrations():
     async with engine.connect() as connection:
