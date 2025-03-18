@@ -16,7 +16,7 @@ async def signup(data: SignUpSchema) -> ResponseSchema:
 
 
 @router.post('/login')
-async def signup(
+async def login(
     response: Response,
     data: LogInSchema
 ) -> JWTAccessSchema:
