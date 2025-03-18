@@ -12,6 +12,7 @@ async def create_jwt_refresh(user_uuid: str, tokens: str, session: AsyncSession)
     session.add(jwt)
     await session.commit()
 
+
 @with_session
 async def get_jwt_refresh(user_uuid: str, session: AsyncSession) -> list:
     users = await session.execute(

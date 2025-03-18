@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta, timezone
-from jwt import encode, decode
+from jwt import encode
 
-from domain.repositories.user import get_user
 from config import config
 
 
