@@ -1,10 +1,12 @@
+import re
+
+from pydantic import field_validator
 from schemas.base import BaseSchema
 
-import re
-from pydantic import field_validator
 
 class BaseAuthSchema(BaseSchema):
     pass
+
 
 class SignUpSchema(BaseAuthSchema):
     username: str

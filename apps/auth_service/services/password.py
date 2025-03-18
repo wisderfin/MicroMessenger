@@ -2,6 +2,7 @@ from bcrypt import hashpw, checkpw, gensalt
 
 from config import config
 
+
 def hash_password(password: str) -> str:
     return hashpw(password.encode(), gensalt(rounds=config.BCRYPT_ROUNDS)).decode()
 

@@ -7,11 +7,13 @@ from schemas.response import ResponseSchema
 from infrastructure.database import with_session
 from services.password import hash_password
 
+
 @with_session
 async def get_user(username: str, session: AsyncSession) -> UserModel:
     response = await session.execute(select(UserModel).filter_by(username=username))
     user = response.scalar_one_or_none()
     return user
+
 
 @with_session
 async def create_user(data: SignUpSchema, session: AsyncSession) -> ResponseSchema:
