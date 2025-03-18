@@ -1,4 +1,7 @@
-sqlalchemy
 pydantic
 pydantic-settings
 asyncpg
+fastapi
+uvicorn
+sqlalchemy
+bcrypt

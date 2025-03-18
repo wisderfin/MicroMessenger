@@ -9,6 +9,10 @@ class Config(BaseSettings):
     DATABASE_PORT: str
     DATABASE_NAME: str
 
+    AUTH_PORT: int
+
+    BCRYPT_ROUNDS: int
+
     class Config:
         env_file = '.env'
         extra = 'ignore'

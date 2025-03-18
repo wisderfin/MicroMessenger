@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
       - postgres-storage:/var/lib/postgresql/data
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_PORT}
     restart: on-failure
     networks:
       - app-network
@@ -57,7 +59,11 @@ services:
     build: ./apps/auth_service
     volumes:
       - ./apps/models:/app/models
+      - ./apps/schemas:/app/schemas
+      - ./apps/infrastructure:/app/infrastructure
     env_file: .env
+    ports:
+      - ${AUTH_PORT}:${AUTH_PORT}
     depends_on:
       database:
         condition: service_healthy
