@@ -13,6 +13,15 @@ class Config(BaseSettings):
 
     BCRYPT_ROUNDS: int
 
+    JWT_ALGORITHM: str
+    JWT_ACCESS_EXPIRE: int
+    JWT_ACCESS_KEY: str
+    JWT_REFRESH_EXPIRE: int
+    JWT_REFRESH_KEY: str
+
+    COOKIE_JWT_REFRESH_KEY: str
+    COOKIE_JWT_ACCESS_KEY: str
+
     class Config:
         env_file = '.env'
         extra = 'ignore'

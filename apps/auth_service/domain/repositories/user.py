@@ -5,7 +5,7 @@ from models.auth import UserModel
 from schemas.auth import SignUpSchema
 from schemas.response import ResponseSchema
 from infrastructure.database import with_session
-from services.password import hash_password
+from domain.services.password import hash_password
 
 
 @with_session

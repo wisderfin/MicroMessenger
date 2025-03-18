@@ -43,3 +43,17 @@ class SignUpSchema(BaseAuthSchema):
             raise ValueError("Password must contain at least one special character")
 
         return v
+
+
+class LogInSchema(BaseAuthSchema):
+    username: str
+    password: str
+
+
+class BaseJWTSchema(BaseSchema):
+    pass
+
+
+class JWTAccessSchema(BaseJWTSchema):
+    jwt_access: str
+    type: str = 'bearer'
